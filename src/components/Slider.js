@@ -47,6 +47,13 @@ export default class Slider extends React.Component {
                     <span onClick={()=>this.go(-1)} className="arrow arrow-left">&lt;</span>
                     <span onClick={()=>this.go(1)} className="arrow arrow-right">&gt;</span>
                 </div>
+                <div className="slider-dots">
+                    {
+                        this.props.images.map((image,index)=>{
+                            return <span key={index} className={"dot  "+(this.state.pos == index?'active':'')} onClick={()=>this.go(index - this.state.pos)}></span>
+                        })
+                    }
+                </div>
             </div>
         )
     }

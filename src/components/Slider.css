@@ -56,3 +56,27 @@ ul,li{
 .arrow-right{
     right:5px;
 }
+
+.slider-dots{
+  width:100%;
+  position: absolute;
+  bottom: 10px;
+  text-align: center;
+}
+
+.slider-dots .dot{
+   display: inline-block;
+   width:20px;
+   height:20px;
+   margin: 10px;
+   border-radius: 50%;
+   background-color: #EEEEEE;
+    cursor: pointer;
+}
+
+.slider-dots .dot:hover{
+    background-color: red;
+}
+.active{
+    border:1px solid blue;
+}

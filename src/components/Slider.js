@@ -11,6 +11,9 @@ export default class Slider extends React.Component {
           if(pos == this.props.images.length){
               pos = 0;
           }
+          if(pos == -1){
+              pos = this.props.images.length -1;
+          }
           this.setState({pos})
     }
     play(){//播放

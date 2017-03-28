@@ -8,9 +8,35 @@ module.exports = {
         path: path.resolve('./build'),//路径
         filename: 'bundle.js'//
     },
-    plugins:[
+    //启动了一个http服务器
+    devServer: {
+        port: 8080,//服务路径
+        inline: true,//当源码修改后会自动重新打包并刷新浏览器
+        contentBase: './build'//静态文件根目录
+    },
+    module: {
+        loaders: [
+            {
+                test: /\.jsx?$/,
+                loader: 'babel-loader',
+                query: {
+                    presets: ["react", "es2015"]
+                },
+                exclude:/node_modules/
+            },
+            {
+                test:/\.css$/,
+                loader:'style-loader!css-loader'
+            },
+            {
+                test:/\.(png|jpg|gif|bmp)$/,
+                loader:'url-loader?limit=30000'
+            }
+        ]
+    },
+    plugins: [
         new HtmlWebpackPlugin({
-            template:'./src/index.html'
+            template: './src/index.html'
         })
     ]
 }
